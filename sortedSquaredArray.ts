@@ -1,28 +1,24 @@
 function sortedSquares(nums: number[]): number[] {
-	const result: number[] = [];
-	for (let i=0; i < nums.length; i++){
-		const square: number = nums[i]*nums[i];
-		if(i === 0){
-			result.push(square);
-			continue;
-		}
+	const result: number[] = new Array(nums.length);
 
-		const lastSquaredItem: number = result[result.length - 1];
-		if(lastSquaredItem <= square){
-			result.push(square);
-		} else if (lastSquaredItem > square){
-			for (let j=result.length-1; j>=0 ; j--){
-				if(result[j] < square){
-					result.splice(j+1, 0, square);
-					break;
-				}
-				if(j === 0){
-					result.splice(0, 0, square);
-					break;
-				}
-			}
+	let leftPointer = 0;
+	let rightPointer = nums.length - 1;
+
+	let i = nums.length - 1;
+	while (leftPointer <= rightPointer) {
+		const squareLeft = nums[leftPointer] ** 2;
+		const squareRight = nums[rightPointer] ** 2;
+
+		if (squareRight > squareLeft) {
+			result[i] = squareRight;
+			rightPointer--;
+		} else {
+			result[i] = squareLeft;
+			leftPointer++;
 		}
+		i--;
 	}
+
 	return result;
 }
 

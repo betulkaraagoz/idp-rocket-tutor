@@ -1,4 +1,4 @@
-function sortedSquares(nums: number[]): number[] {
+function sortedSquaredArray(nums: number[]): number[] {
 	const result: number[] = new Array(nums.length);
 
 	let leftPointer = 0;
@@ -23,5 +23,5 @@ function sortedSquares(nums: number[]): number[] {
 }
 
 const inputArray: number[] = [-4,-1,0,3,10];
-const result: number[] = sortedSquares(inputArray);
+const result: number[] = sortedSquaredArray(inputArray);
 console.log(result);

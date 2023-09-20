@@ -1,12 +1,12 @@
 function twoNumberSum(nums: number[], target: number): number[] {
-	const numSet: { [key: number]: boolean } = {};
+	const numTracker: { [key: number]: boolean } = {};
 
 	for (const num of nums) {
 		const complement = target - num;
-		if (numSet[complement]) {
+		if (numTracker[complement]) {
 			return [num, complement];
 		}
-		numSet[num] = true;
+		numTracker[num] = true;
 	}
 
 	return [];
